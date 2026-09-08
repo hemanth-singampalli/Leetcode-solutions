@@ -1,0 +1,17 @@
+class Solution:
+    def minimumBoxes(self, apple, capacity):
+        total_apples = sum(apple)
+
+        capacity.sort(reverse=True)
+
+        boxes = 0
+        current_capacity = 0
+
+        for c in capacity:
+            current_capacity += c
+            boxes += 1
+
+            if current_capacity >= total_apples:
+                return boxes
+
+        return boxes
